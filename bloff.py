@@ -31,7 +31,7 @@ from tkinter import messagebox as mbox
 
 ## GLOBAL FLAGS
 GUI_ENABLED = False
-SCRIPT_MODE_ENABLED = False
+SCRIPT_MODE_ENABLED = True
 
 
 ## MessageBoxW() FUNCTION CONSTANTS
@@ -3035,3 +3035,4 @@ def main() -> None:
 
 if (__name__ == "__main__"):
     main()
+
