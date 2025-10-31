@@ -2,15 +2,7 @@ import os
 import sys
 import shutil
 import PyInstaller.__main__ as pim
-import subprocess as sp
-
-
-def is_on_path(exe_name) -> bool:
-    for folder in os.environ["PATH"].split(";"):
-        if (os.path.isdir(folder) and
-            exe_name in os.listdir(folder)):
-            return True
-    return False 
+import subprocess as sp
 
 
 def cleanup(build_failed = False) -> None:
@@ -29,26 +21,12 @@ def cleanup(build_failed = False) -> None:
             os.remove(file)
 
 
-def main() -> None:
-    print ("Checking Python is on PATH...  ", end = "", flush = True)
-    if (not is_on_path("python.exe")):
-        print ("NO")
-        print ("ERROR: Build cannot proceed. Please add Python to PATH.")
-        sys.exit(1)
-    print ("YES")
-
+def main() -> None:
     print ("Checking Python >= 3.12...  ", end = "", flush = True)
     pyver: tuple = sys.version_info[0: 3]
     if (pyver[0] < 3 or pyver[1] < 12):
         print ("NO")
         print ("ERROR: Build cannot proceed. Please upgrade your Python to >= 3.12.")
-        sys.exit(1)
-    print ("YES")
-
-    print ("Checking Pyinstaller is on PATH...  ", end = "", flush = True)
-    if (not is_on_path("pyinstaller.exe")):
-        print ("NO")
-        print ("ERROR: Build cannot proceed. Please add pyinstaller to PATH.")
         sys.exit(1)
     print ("YES")
 
