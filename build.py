@@ -1,8 +1,7 @@
 import os
 import sys
 import shutil
-import PyInstaller.__main__ as pim
-import subprocess as sp
+import PyInstaller.__main__ as pim
 
 
 def cleanup(build_failed = False) -> None:
